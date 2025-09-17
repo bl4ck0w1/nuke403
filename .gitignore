@@ -1,0 +1,56 @@
+# ── Python basics
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.dylib
+*.egg-info/
+.eggs/
+.build/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.pytype/
+.ruff_cache/
+.tox/
+coverage.xml
+htmlcov/
+.coverage*
+cache/
+*.ipynb_checkpoints
+
+.venv/
+venv/
+env/
+ENV/
+.python-version
+.poetry/
+pip-wheel-metadata/
+
+# ── OS/editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Logs & runtime artifacts
+logs/
+*.log
+forensic_evidence/
+results/
+reports/
+tmp/
+*.tmp
+
+# ── Config & secrets
+.env
+*.env
+config/*.yaml
+!config/example.settings.yaml
+
+# ── HTTP client caches / signatures
+core/profiler/signatures/*.json
+!core/profiler/signatures/example.signatures.json
