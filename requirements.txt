@@ -1,0 +1,47 @@
+# -----------------------------
+# Core async HTTP stack
+# -----------------------------
+aiohttp==3.12.13
+yarl==1.20.1
+multidict==6.6.4
+frozenlist==1.7.0
+aiosignal==1.4.0
+aiohttp_socks==0.8.4         # for SocksConnector
+PySocks==1.7.1               # import name: 'socks'
+
+# -----------------------------
+# Synchronous HTTP (used by PoC generator)
+# -----------------------------
+requests==2.32.5
+urllib3==2.5.0
+idna==3.10
+charset-normalizer==3.4.3
+certifi>=2025.7.0
+
+# -----------------------------
+# Numerics / ML
+# -----------------------------
+numpy==2.3.0
+scipy==1.16.1
+scikit-learn==1.7.1
+pandas>=2.0,<3               # used in dataset prep & training
+
+# -----------------------------
+# Deep Learning / Transformers
+# -----------------------------
+torch==2.8.0                 # choose CPU/GPU build as appropriate
+transformers==4.56.0
+accelerate>=0.20,<1.0        # Trainer backend/runtime
+
+# -----------------------------
+# Utilities
+# -----------------------------
+PyYAML==6.0.1
+Pillow==11.3.0
+tqdm==4.67.1
+attrs==25.3.0
+
+# -----------------------------
+# Security / Forensics
+# -----------------------------
+ssdeep==3.4
