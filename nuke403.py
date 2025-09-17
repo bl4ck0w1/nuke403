@@ -43,7 +43,7 @@ class Nuke403:
             ::   ::  ::::: ::   ::  :::   :: ::::       :::   ::::::: ::  :: ::::  
             ::    :    : :  :    :   :::  : :: ::        :::    : : :  :    : : :                                                                                                                          
 {reset}
-        Advanced level 403/401 Bypasser
+                        Advanced level 403/401 Bypasser
         """
         print(banner)
     
