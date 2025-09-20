@@ -6,8 +6,8 @@ yarl==1.20.1
 multidict==6.6.4
 frozenlist==1.7.0
 aiosignal==1.4.0
-aiohttp_socks==0.8.4         # for SocksConnector
-PySocks==1.7.1               # import name: 'socks'
+aiohttp_socks==0.8.4    
+PySocks==1.7.1             
 
 # -----------------------------
 # Synchronous HTTP (used by PoC generator)
@@ -24,14 +24,14 @@ certifi>=2025.7.0
 numpy==2.3.0
 scipy==1.16.1
 scikit-learn==1.7.1
-pandas>=2.0,<3               # used in dataset prep & training
+pandas>=2.0,<3             
 
 # -----------------------------
 # Deep Learning / Transformers
 # -----------------------------
-torch==2.8.0                 # choose CPU/GPU build as appropriate
+torch==2.8.0             
 transformers==4.56.0
-accelerate>=0.20,<1.0        # Trainer backend/runtime
+accelerate>=0.20,<1.0  
 
 # -----------------------------
 # Utilities
