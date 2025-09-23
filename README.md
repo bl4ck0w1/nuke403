@@ -15,8 +15,6 @@ Existing “403 bypass” scripts are handy, but they’re noisy, brittle, and l
 * **Signature-Aware** — Import & consolidate WAFW00F fingerprints for smarter profiling.
 * **Operator-Ready** — Clean JSON/Markdown reports and PoC generators for reproducible evidence.
 
-> ⚠️ **Ethics & Scope**: Use only with explicit permission. Respect rate limits, program rules, and the law.
-
 ## Features at a Glance
 
 * **Profiler & Fingerprinting**: Detect WAF/back-end/protocol traits; seed the right engines.
@@ -158,7 +156,7 @@ python3 nuke403.py -u https://api.target.com/v1/private --no-protocol
 python3 nuke403.py -u https://corp.target.com --rate-limit 2 --timeout 15 --max-retries 1
 ```
 
-## 🧾 Reports & PoCs
+### 🧾 Reports & PoCs
 
 * **JSON/Markdown** summaries: technique, payload, status, response sizes, basic evidence.
 * **Exploit Generator**: emits PoC snippets (Python, cURL, JS) for validated findings.
@@ -167,7 +165,7 @@ python3 nuke403.py -u https://corp.target.com --rate-limit 2 --timeout 15 --max-
 
 **Nuke403** complements discovery tools (ffuf/dirsearch) and scanners (nuclei). It specializes in **multi-vector access bypass** with **AI feedback** and **strict FP controls**.
 
-## 🔐 Legal & Safety Defaults
+### 🔐 Legal & Safety Defaults
 
 * Respects your **rate-limit** settings.
 * No “autopwn” — it documents potential bypasses, then optionally generates PoC **examples**.
@@ -175,25 +173,30 @@ python3 nuke403.py -u https://corp.target.com --rate-limit 2 --timeout 15 --max-
 ## FAQ — Questions You Should Ask
 
 1. **Can this *really* bypass modern WAFs?**
+
    No tool can guarantee it. Nuke403 stacks multiple evasion classes (path/header/protocol) and **adapts** via RL while **classifying outcomes** with BERT. When bypasses happen, they’re usually target-specific parser mismatches or trust-chain quirks — and Nuke403’s **triple validation** helps you tell signal from noise.
 
 2. **How is this different from ffuf/dirsearch/nuclei or “403-bypass” scripts?**
+
    Discovery tools excel at breadth via wordlists; “403-bypass” scripts try a handful of tricks. **Nuke403** focuses on **access control bypass** with **protocol-level** vectors, **AI-guided iteration**, and **strict validation** — it’s a complement, not a replacement.
 
 3. **Do I need AI to get value?**
+
    No. You can disable AI with `--no-ai`. The engines still run. AI provides **prioritization**, **early “bypass-possible” signals**, and **novel payloads** — handy on tough targets or large scopes.
 
 4. **How does Nuke403 keep false positives low?**
    Three ways:
 
-* **Behavioral** checks (codes, size sanity)
-* **Content** similarity (TF-IDF + fuzzy hashing) vs. baseline
-* **Shadow** URL cross-check — if a random non-existent path “works” the same way, it’s flagged
+   * **Behavioral** checks (codes, size sanity)
+   * **Content** similarity (TF-IDF + fuzzy hashing) vs. baseline
+   * **Shadow** URL cross-check — if a random non-existent path “works” the same way, it’s flagged
 
 5. **Is it safe/legal to run?**
+
    It’s safe **within scope** you control. You **must** have written authorization. Use rate-limits, proxies, and program rules. The project is provided **as-is**, for research and permitted testing.
 
 ## 🛠 Troubleshooting
+
 - If you encounter any issues, please [open an issue](https://github.com/bl4ck0w1/nuke403/issues) on GitHub.
 
 ## 🤝 Contributing
@@ -208,7 +211,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the APACHE 2.0 License - see the [LICENSE](LICENSE) file for details.
 
 ## 👤 Author
 
