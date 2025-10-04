@@ -6,7 +6,7 @@
 
 ## Why Nuke403?
 
-Existing “403 bypass” scripts are handy, but they’re noisy, brittle, and lack feedback loops. **Nuke403** is built for red-team and bug-bounty reality:
+Existing “403 bypass” scripts are handy, but they’re noisy, brittle, and lack feedback loops. **Nuke403** is built for red-team and bug-bounty hunters reality:
 
 * **Minimal False Positives** — Triple validation (behavioral + TF-IDF similarity + shadow URL) before reporting.
 * **Multi-Vector Evasion** — Path tricks, header forging, and protocol weirdness (HTTP/0.9, TE/CL, overrides).
